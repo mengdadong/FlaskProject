@@ -14,7 +14,8 @@ def setPassword(password):
     md5.update(password.encode())
     return md5.hexdigest()
 
-@app.route("/register/",methods=["GET","POST"])
+
+@app.route("/register/", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
         form_data = request.form
@@ -30,34 +31,33 @@ def register():
     return render_template("register.html", **locals())
 
 
-@app.route("/login/",methods=["GET","POST"])
+@app.route("/login/", methods=["GET", "POST"])
 def login():
     students = Students.query.all()
     response = render_template("students_list.html", **locals())
-    #response.set_cookie("")
+    # response.set_cookie("")
     return response
 
 
-
-@app.route("/index/",methods=["GET","POST"])
+@app.route("/index/", methods=["GET", "POST"])
 def index():
     students = Students.query.all()
     response = render_template("students_list.html", **locals())
-    #response.set_cookie("")
+    # response.set_cookie("")
     return response
 
-@app.route("/logout/",methods=["GET","POST"])
+
+@app.route("/logout/", methods=["GET", "POST"])
 def logout():
     students = Students.query.all()
     response = render_template("students_list.html", **locals())
-    #response.set_cookie("")
+    # response.set_cookie("")
     return response
 
 
-@app.route("/student_list/",methods=["GET","POST"])
+@app.route("/student_list/", methods=["GET", "POST"])
 def student_list():
     students = Students.query.all()
     response = render_template("students_list.html", **locals())
-    #response.set_cookie("")
+    # response.set_cookie("")
     return response
-
